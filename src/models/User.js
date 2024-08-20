@@ -27,7 +27,7 @@ const User = sequelize.define('user', {
     }
 });
 
-//intercepta y encripta el password
+//intercepta y encripta el password *uso de hooks
 User.beforeCreate(async(user)=>{
     const password = user.password
     const hashPassword = await bcrypt.hash(password, 10)
