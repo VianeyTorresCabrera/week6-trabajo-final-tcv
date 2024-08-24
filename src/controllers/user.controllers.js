@@ -13,13 +13,6 @@ const create = catchError(async(req, res) => {
     return res.status(201).json(result);
 });
 
-const getOne = catchError(async(req, res) => {
-    const { id } = req.params;
-    const result = await User.findByPk(id);
-    if(!result) return res.sendStatus(404);
-    return res.json(result);
-});
-
 const remove = catchError(async(req, res) => {
     const { id } = req.params;
     const result = await User.destroy({ where: {id} });
@@ -32,6 +25,8 @@ const update = catchError(async(req, res) => {
     delete req.body.password;
     delete req.body.email;
     delete req.body.phone;
+
+    
     const result = await User.update(
         req.body,
         { where: {id}, returning: true }
@@ -39,6 +34,20 @@ const update = catchError(async(req, res) => {
     if(result[0] === 0) return res.sendStatus(404);
     return res.json(result[1][0]);
 });
+
+
+
+// const update = catchError(async(req, res) => {
+//     const { id } = req.params;
+//     const newbody = {};
+//     for( const valor in req.body){
+//         (req.body.userId !="")?  newbody.post = req.body.post : newbody={...req.body, userId:user.id}
+//         }
+//     const result = await Post.update( newbody, { where: {id}, returning: true });
+
+//     if(result[0] === 0) return res.sendStatus(404);
+//     return res.json(result[1][0]);
+// });
 
 
 const login = catchError(async(req, res)=>{
@@ -60,8 +69,7 @@ const login = catchError(async(req, res)=>{
 
 module.exports = {
     getAll,
-    create,
-    getOne,
+    create,    
     remove,
     update,
     login

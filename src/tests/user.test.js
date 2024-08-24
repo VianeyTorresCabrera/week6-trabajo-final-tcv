@@ -48,7 +48,7 @@ test("POST -> BASE_URL, should return statusCode 201, and res.body.firstName ===
         .send(user)
 
     userId= res.body.id;
-    console.log(res.body.id)
+   // console.log(res.body.id)
 
 
     expect(res.statusCode).toBe(201)
@@ -131,7 +131,7 @@ test("PUT -> BASE_URL/userId/, should return statusCode 200, and res.body.firstN
         .set('Authorization', `Bearer ${TOKEN}`)
         .send(userUpdate)
 
-        console.log(userUpdate)
+        //console.log(userUpdate)
 
     expect(res.statusCode).toBe(200)
     expect(res.body).toBeDefined()
@@ -148,6 +148,8 @@ test("DELETE -> BASE_URL/userId, should return statusCode 204", async()=>{
     
     expect(res.statusCode).toBe(204)
 });
+
+
 
 
 
