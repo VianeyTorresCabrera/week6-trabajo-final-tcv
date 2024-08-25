@@ -10,7 +10,6 @@ let TOKEN
 let userId
 
 
-
 //!login
 beforeAll(async()=>{
     //hits
