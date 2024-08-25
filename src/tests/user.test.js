@@ -39,10 +39,7 @@ const user = {
 //!create
 test("POST -> BASE_URL, should return statusCode 201, and res.body.firstName === user.firstName", async() =>{
 
-    //console.log(first)
-    //const user = await User.findAll()
-    //console.log(user);
-    //const columns = [firstName, lastName, email, password, phone]
+    
     const res = await request(app)
         .post(BASE_URL)
         .send(user)
@@ -106,18 +103,7 @@ test("POST-> BASE_URL/login shoul return statusCode401", async()=>{
     
 })
 
-// test("POST -> BASE_URL/login should return statusCode 200, and res.body.user.email ==== user.email", async()=>{
-//     const user = {
-//         email: "mary@gmail.com", //email = user.email
-//         password:"mary123",
-//     }
 
-//     const res = await request(app)
-//         .post(`${BASE_URL}/login`)
-//         .send(user)
-
-    
-// });
 
 //!Update
 test("PUT -> BASE_URL/userId/, should return statusCode 200, and res.body.firstName== student.firstName", async()=>{
