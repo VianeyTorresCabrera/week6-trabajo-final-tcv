@@ -35,6 +35,7 @@ const user = {
         phone: "+57232145678"
 }
 
+
 //!create
 test("POST -> BASE_URL, should return statusCode 201, and res.body.firstName === user.firstName", async() =>{
 

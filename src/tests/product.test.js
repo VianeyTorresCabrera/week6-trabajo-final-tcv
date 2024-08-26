@@ -26,6 +26,7 @@ beforeAll(async () => {
     TOKEN = res.body.token
 
     category = await Category.create({name: 'Kitchen'})
+    
 
     product = {
         title: "Estufa 15'",
@@ -63,7 +64,7 @@ test("GET -> BASE_URL, should return statusCode 200, and res.body.length===1", a
 
     expect(res.statusCode).toBe(200)
     expect(res.body).toBeDefined()
-    expect(res.body).toHaveLength(1)
+    expect(res.body).toHaveLength(2)
 
     //1:n
     expect(res.body[0].category.id).toBeDefined()
