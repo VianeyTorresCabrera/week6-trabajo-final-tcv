@@ -62,9 +62,10 @@ test("GET -> BASE_URL, should return statusCode 200, and res.body.length===1", a
         .get(BASE_URL)
         .set('Authorization', `Bearer ${TOKEN}`)
 
+        //console.log(res.body)
     expect(res.statusCode).toBe(200)
     expect(res.body).toBeDefined()
-    expect(res.body).toHaveLength(2)
+    expect(res.body).toHaveLength(1)
 
     //1:n
     expect(res.body[0].category.id).toBeDefined()
